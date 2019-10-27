@@ -1,0 +1,22 @@
+<h3>Beer shop</h3>
+<!--<p *ngFor="let item of articles | async"></p>{{ item.nom }}: {{ item.prix }}€ </p>-->
+<input type="text" id="search" name="search"
+		autocomplete="off"
+        placeholder="Rechercher"
+		(keyup)="majTab();">
+        
+<table id="matable">
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Prix</th>
+    </tr>
+    </thead>	
+    <tbody id="body" *ngFor="let item of articles | async">
+    <tr>
+        <td>{{ item.nom }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.prix }}€</td>
+    </tbody>
+</table>

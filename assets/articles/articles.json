@@ -1,0 +1,7 @@
+[
+    {"nom":"Raybeer","description":"Bière énergisante","prix":2.50},
+    {"nom":"Biobeer","description":"Bière biologique","prix":3.30},
+    {"nom":"Beereco","description":"Bière eco","prix":0.99},
+    {"nom":"FELDBRAU","description":"Bière de luxe","prix":4.99},
+    {"nom":"Beer","description":"Bière classique","prix":2.00}
+]
