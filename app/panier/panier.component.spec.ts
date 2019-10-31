@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RecapitulatifComponent } from './recapitulatif.component';
+import { PanierComponent } from './panier.component';
 
-describe('RecapitulatifComponent', () => {
-  let component: RecapitulatifComponent;
-  let fixture: ComponentFixture<RecapitulatifComponent>;
+describe('PanierComponent', () => {
+  let component: PanierComponent;
+  let fixture: ComponentFixture<PanierComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RecapitulatifComponent ]
+      declarations: [ PanierComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RecapitulatifComponent);
+    fixture = TestBed.createComponent(PanierComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

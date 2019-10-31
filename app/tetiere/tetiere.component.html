@@ -1,4 +1,5 @@
 <div style='background-color: aqua'>
     <h1>Formulaire</h1>
+    <app-panier></app-panier> <p *ngFor="let item of panier | async">{{ item.name }} - {{ item.ref }}</p>
 </div>
 

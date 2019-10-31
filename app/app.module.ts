@@ -7,45 +7,56 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TetiereComponent } from './tetiere/tetiere.component';
 import { FooterComponent } from './footer/footer.component';
-import { FormulaireComponent } from './formulaire/formulaire.component';
-import { RecapitulatifComponent } from './recapitulatif/recapitulatif.component';
 import { PhoneNumberPipe } from './phone-number.pipe';
 import { ErrorDirective } from './error.directive';
-import { ListeComponent } from './liste/liste.component';
-import { RouterModule, Routes } from '@angular/router';
 import { ApiService } from 'src/api.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxsModule } from '@ngxs/store';
+import { PanierComponent } from './panier/panier.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {path: '', component : PanierComponent},
+  {path: 'module', 
+  loadChildren: () => import('./modules/modules.module').then(m => m.ModuleModule)},
+]
 
 
-const appRoutes: Routes = [
-  { path: 'liste', component: ListeComponent },
-  { path: 'formulaire', component: FormulaireComponent }
-];
 
 @NgModule({
   declarations: [
     AppComponent,
     TetiereComponent,
     FooterComponent,
-    FormulaireComponent,
-    RecapitulatifComponent,
     PhoneNumberPipe, 
-    ErrorDirective, ListeComponent
+    ErrorDirective, PanierComponent
   ],
   imports: [
     BrowserModule, 
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    ),
+    RouterModule.forRoot(routes),
+    NgxsModule.forRoot (),
     BrowserModule,
-    AppRoutingModule,
-    FormsModule
+    AppRoutingModule
   ],
+  exports: [RouterModule],
   providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export interface Article {
+
+  nom : string;
+  description : string;
+  prix: number;
+  
+}
+  
+export class Store {
+  
+  articles: Article[];
+  
+}
